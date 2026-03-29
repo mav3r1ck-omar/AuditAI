@@ -1,6 +1,6 @@
 import express from "express";
 import { parser } from "../utils/parser.js";
-import { analyzeSEO } from "../utils/gemini.js";
+import { analyzeSEO, chatAboutReport } from "../utils/gemini.js";
 import redis from "../utils/redis.js";
 
 const router = express.Router();
@@ -27,6 +27,22 @@ router.post('/', async (req, res) => {
     } catch (error) {
         console.error("Audit error:", error);
         return res.status(500).json({ error: "Failed to perform audit. " + error.message });
+    }
+});
+
+router.post('/chat', async (req, res) => {
+    const { report, message, history } = req.body;
+    
+    if (!report || !message) {
+        return res.status(400).json({ error: "Report and message are required" });
+    }
+
+    try {
+        const result = await chatAboutReport(report, message, history);
+        return res.json(result);
+    } catch (error) {
+        console.error("Chat error:", error);
+        return res.status(500).json({ error: "Failed to perform chat. " + error.message });
     }
 });
 

@@ -41,3 +41,26 @@ Respond strictly with a JSON object containing the exact following keys:
         throw e;
     }
 };
+
+export const chatAboutReport = async (report, message, history = []) => {
+    const prompt = `You are an expert SEO auditor AI.
+    
+Here is the SEO report for a website:
+${JSON.stringify(report, null, 2)}
+
+User's query: ${message}
+
+Provide a helpful, precise, and concise answer based ONLY on the provided report. Focus on giving actionable advice derived from the report. If the user asks something completely outside the scope of SEO or the report, gently state that you can only answer questions regarding the site's SEO analysis.`;
+
+    try {
+        const response = await ai.models.generateContent({
+            model: 'gemini-2.5-flash',
+            contents: prompt,
+        });
+        
+        return { response: response.text };
+    } catch (e) {
+        console.error("Gemini GenAI Chat Error:", e);
+        throw e;
+    }
+};
