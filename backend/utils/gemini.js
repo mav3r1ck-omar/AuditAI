@@ -50,7 +50,7 @@ ${JSON.stringify(report, null, 2)}
 
 User's query: ${message}
 
-Provide a helpful, precise, and concise answer based ONLY on the provided report. Focus on giving actionable advice derived from the report. If the user asks something completely outside the scope of SEO or the report, gently state that you can only answer questions regarding the site's SEO analysis.`;
+Provide a helpful, precise, and concise answer based ONLY on the provided report. Focus on giving actionable advice derived from the report. Do NOT use markdown formatting (no asterisks, no hashes, no bolding). Use plain conversational text separated by natural line breaks. If the user asks something completely outside the scope of SEO or the report, gently state that you can only answer questions regarding the site's SEO analysis.`;
 
     try {
         const response = await ai.models.generateContent({
