@@ -1,6 +1,6 @@
 import express from "express";
 import { parser } from "../utils/parser.js";
-import { analyzeSEO } from "../utils/openai.js";
+import { analyzeSEO } from "../utils/gemini.js";
 import redis from "../utils/redis.js";
 
 const router = express.Router();
