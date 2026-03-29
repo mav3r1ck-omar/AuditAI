@@ -52,8 +52,8 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-slate-800/60 bg-[#020617]/80 backdrop-blur-xl">
         <div className="container mx-auto px-4 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onClick={startNew}>
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-              <Activity className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-lg shadow-indigo-500/20">
+              <img src="/logo.png" alt="AuditAI Logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">AuditAI</span>
           </div>

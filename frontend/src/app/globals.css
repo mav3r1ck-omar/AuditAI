@@ -134,3 +134,20 @@ nextjs-portal,
 [data-nextjs-toast] {
   display: none !important;
 }
+
+/* Force input transparency on autofill and state changes */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px #090e1a !important;
+}
+
+input:focus, 
+input:active {
+  background-color: transparent !important;
+  background-image: none !important;
+}
